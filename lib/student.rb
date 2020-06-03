@@ -85,6 +85,7 @@ class Student
     sql = <<-SQL
        SELECT * 
        FROM students 
+       HEAD
        LIMIT ?
     SQL
 
@@ -107,6 +108,21 @@ class Student
   end
 
 
+=======
+       WHERE students.grade = 10
+    SQL
+
+    DB[:conn].execute(sql, x)
+  end
+
+  def self.first_student_in_grade_10
+    s = self.first_X_students_in_grade_10(1)
+    s.map do |i|
+      self.new_from_db(i)
+    end[0]
+  end
+
+>>>>>>> 6246d74ea01167254f73aae34ce6246df8819e27
   def self.all_students_in_grade_X(grade)
     sql = <<-SQL
        SELECT * FROM students WHERE grade = ?
