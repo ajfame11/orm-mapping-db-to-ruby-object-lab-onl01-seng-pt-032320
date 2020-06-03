@@ -122,7 +122,7 @@ class Student
     end[0]
   end
 
->>>>>>> 6246d74ea01167254f73aae34ce6246df8819e27
+
   def self.all_students_in_grade_X(grade)
     sql = <<-SQL
        SELECT * FROM students WHERE grade = ?
